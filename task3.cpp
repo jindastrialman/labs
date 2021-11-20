@@ -89,7 +89,8 @@ int main()
 		return 0;
 	}
 
-	cout << FirstPathFind(a - 1) << endl;
+	if(FirstPathFind(a - 1)) cout << "Путь из A в B через C существует";
+	else cout << "Пути из A в B через C нет";
 
 	for(int i = 0; i < size; i++)
 		delete [] matrix[i]; // отчищаем память
