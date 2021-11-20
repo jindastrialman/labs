@@ -67,8 +67,14 @@ bool SecondPathFind(int location)
 int main()
 {
 
-	cin >> size >> a >> b >> c;
-	
+	setlocale(LC_ALL, "russian");
+	do
+	{
+		cout << "Введите колличество пунктов назначения, A, B, C: \n";
+		cin >> size >> a >> b >> c;
+	} while (size < a || size < b || size < c);
+
+	cout << "Введите Матрицу смежности";
 	matrix = new int* [size];
 	for(int i = 0; i < size; i++)
 	{
@@ -79,7 +85,7 @@ int main()
 
 	if(!IsAnyRoadToC() || !IsAnyRoadToB())
 	{
-		cout << 0 << endl;
+		cout << "Пути к B через C нет" << endl;
 		return 0;
 	}
 
