@@ -4,7 +4,7 @@ class Stack{
 protected:
 	struct ListElement
 	{
-		int data;
+		float data;
 		ListElement *next;
 	};
 	ListElement* _head;
@@ -16,7 +16,7 @@ public:
 		_size = 0;
 	}
 
-	void push(int element)
+	void push(float element)
 	{
 		_size++;
 		if(_head == NULL)
