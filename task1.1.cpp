@@ -1,8 +1,8 @@
 #include <iostream>
 
-int min(int *arr, int size)
+float min(float *arr, int size)
 {
-	int min = arr[0];
+	float min = arr[0];
 
 	for(int i = 1; i < size; i++)
 		if(min > arr[i])
@@ -11,9 +11,10 @@ int min(int *arr, int size)
 	return min;
 }
 
-int sum_between_positives(int *arr, int size)
+float sum_between_positives(float *arr, int size)
 {
-	int sum = 0, first_positive_index = -1, last_positive_index = -1;
+	float sum = 0;
+	int first_positive_index = -1, last_positive_index = -1;
 	for(int i = 0; i < size; i++)
 	{
 		if(arr[i] > 0){
@@ -32,13 +33,13 @@ int sum_between_positives(int *arr, int size)
 	return sum;
 }
 
-void push_zeros(int * &arr, int size)
+void push_zeros(float * &arr, int size)
 {
 	int zero_offset = 0;
 	for(int i = 0; i < size; i++)
 		if(arr[i] == 0) zero_offset++;
 
-	int *buff = new int[size];
+	float *buff = new float[size];
 	for(int i = 0; i < zero_offset; i++) buff[i] = 0;
 	for(int i = 0, j = zero_offset; i < size; i++)
 		if(arr[i] != 0)
@@ -54,12 +55,13 @@ int main()
 {	
 	setlocale(LC_ALL, "russian");
 
-	int *arr, size;
+	float *arr;
+	int size;
 
 	cout << "Введите размер массива : ";
 	cin >> size;
 
-	arr = new int[size];
+	arr = new float[size];
 
 	cout << "Введите элементы массива : ";
 	for(int i = 0; i < size ; i++) cin >> arr[i];
