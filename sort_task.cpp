@@ -95,9 +95,11 @@ int main()
 	setlocale(LC_ALL, "russian");
 	date *times;
 	int count;
+	std::cout << "Введите колличество посетителей";
 	std::cin >> count;
 	count *= 2;
 	times = new date[count];
+	std::cout << "Введите время прихода и ухода в формате \"чч мм сс чч мм сс\"";
 	for(int i = 0; i < count; i++)
 	{
 		int h,m,s;
@@ -113,7 +115,8 @@ int main()
 	}
 
 	date *result = maximum_overlap(times, count);
-
+	
+	std::cout << "В этом промежутке было больше всего посетителей: " << std::endl;
 	std::cout << result[0].h << ' ' << result[0].m << ' ' << result[0].s << std::endl;
 	std::cout << result[1].h << ' ' << result[1].m << ' ' << result[1].s << std::endl;
 }
