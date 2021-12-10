@@ -75,8 +75,7 @@ date* maximum_overlap(date *times, int count)
 			curCount++;
 		else
 			curCount--;
-
-		std::cout << maxCount << ' ' << curCount << std::endl;
+		
 		if(maxCount < curCount)
 		{
 			maxCount = curCount;
