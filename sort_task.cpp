@@ -65,7 +65,7 @@ void sort(date *arr, int low, int high)
 
 date* maximum_overlap(date *times, int count)
 {
-	sort(times, 1, count - 1);
+	sort(times, 0, count - 1);
 	date *result = new date[2];
 	int maxCount = 0, curCount = 0;
 
@@ -87,6 +87,7 @@ date* maximum_overlap(date *times, int count)
 						result[1] = times[j];
 		}
 	}
+	for(int i = 0; i < count; i++) std::cout << times[i].h << ' ' << times[i].m << ' ' << times[i].s <<' ' << times[i].type<< std::endl;
 	return result;
 }
 
