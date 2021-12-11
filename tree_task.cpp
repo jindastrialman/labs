@@ -42,7 +42,6 @@ public:
 			if(compare_result < 0)
 				cur = cur->right;
 		}
-		//std::cout << prev->data << ' ' << element << ' ' << prev->data.compare(element) << std::endl;
 
 		if(prev->data.compare(element) > 0)
 			prev->left = new TreeElement(element);
@@ -64,13 +63,13 @@ public:
 		if(current == NULL)
 			return;
 
-		//std::cout << current->data << ' ' << index << std::endl;
 		array[index] = current->data;
 		index++;
 
 		insert_to_string_array(current->left, array);
 		insert_to_string_array(current->right, array);
 	}
+	int get_size(){return size;}
 
 };
 
@@ -79,17 +78,26 @@ using namespace std;
 int main()
 {
 	setlocale(LC_ALL, "russian");
-	BinaryTree *tree = new BinaryTree("ab");
-	tree->add_element("a");
-	tree->add_element("b");
-	tree->add_element("c");
-	tree->add_element("aa");
-	tree->add_element("ac");
-	tree->add_element("ac");
-	tree->add_element("ad");
-	tree->add_element("af");
-	tree->add_element("f");
-	string * array = tree->tree_to_string_array();;
-	for(int i = 0; i < 9; i++)
+
+	int count = 0;
+	BinaryTree *tree;
+
+	cout << "Введите колличество слов: ";
+	cin >> count;
+	
+	cout << "Введите слова " << endl;
+	for(int i = 0; i < count; i++)
+	{
+		string word;
+		cin >> word;
+
+		if(i == 0)	tree = new BinaryTree(word);
+		else 		tree->add_element(word);
+	}
+
+	string * array = tree->tree_to_string_array();
+	cout << "Элементы получившегося массива: ";
+	for(int i = 0; i < tree->get_size(); i++)
 		cout << array[i] << ' ';
+	cout << endl;
 }
